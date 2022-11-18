@@ -9,7 +9,7 @@ import enums.Orientation;
 import model.Coordinate;
 import model.Grid;
 import model.Rover;
-import service.DirectionImpl;
+import service.Direction;
 
 public class Run {
 
@@ -31,7 +31,7 @@ public class Run {
 
 						Orientation or = Orientation.orientationMatching(list.get(i).split(" ")[2]);
 
-						DirectionImpl direction1 = new DirectionImpl(or);
+						Direction direction1 = new Direction(or);
 
 						Rover rover = new Rover(grid, cord, direction1);
 

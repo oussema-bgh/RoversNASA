@@ -2,12 +2,11 @@ package service;
 
 import enums.Orientation;
 
-public class DirectionImpl  {
+public class Direction {
 
 	private Orientation orientation;
 
-	public DirectionImpl(Orientation orientation) {
-		super();
+	public Direction(Orientation orientation) {
 		this.orientation = orientation;
 	}
 
@@ -23,7 +22,7 @@ public class DirectionImpl  {
 		return orientation.getCurrent();
 	}
 
-	public Orientation directionMatching(String value) {
+	private Orientation directionMatching(String value) {
 		for (Orientation obj : Orientation.values()) {
 			if (obj.getCurrent().equals(value)) {
 				return obj;
@@ -33,14 +32,13 @@ public class DirectionImpl  {
 	}
 
 	public Orientation getOrientation() {
-		return this.orientation;
+		return orientation;
 	}
 
 	public void setOrientation(Orientation orientation) {
 		this.orientation = orientation;
 	}
 
-	@Override
 	public String toString() {
 		return orientation.getCurrent();
 	}

@@ -9,11 +9,12 @@ import enums.Orientation;
 import model.Coordinate;
 import model.Grid;
 import model.Rover;
-import service.DirectionImpl;
+import service.Direction;
+import service.Direction;
 
 class DirectionTest {
 
-	private DirectionImpl direction = new DirectionImpl(Orientation.NORTH);
+	private Direction direction = new Direction(Orientation.NORTH);
 	private Coordinate coordinate = new Coordinate(0, 0);
 	private Grid grid = new Grid(5, 5);
 	private Rover rover = new Rover(grid, coordinate, direction);

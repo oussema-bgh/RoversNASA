@@ -1,14 +1,15 @@
 package model;
 
-import service.DirectionImpl;
+import constants.Const;
+import service.Direction;
 
 public class Rover {
 
 	private Grid grid;
 	private Coordinate coordinate;
-	private DirectionImpl direction;
+	private Direction direction;
 
-	public Rover(Grid grid, Coordinate coordinate, DirectionImpl direction) {
+	public Rover(Grid grid, Coordinate coordinate, Direction direction) {
 		this.grid = grid;
 		this.coordinate = coordinate;
 		this.direction = direction;
@@ -16,17 +17,23 @@ public class Rover {
 
 	public String execute(String commands) {
 		for (char c : commands.toCharArray()) {
-			if (c == 'R') {
+
+			switch (c) {
+			case Const.turn_Right:
 				direction.setOrientation(direction.right());
-			}
-			if (c == 'L') {
+				break;
+			case Const.turn_Left:
 				direction.setOrientation(direction.left());
-			}
-			if (c == 'M') {
+				break;
+			case Const.move:
 				coordinate = grid.nextCellPosition(coordinate, direction.getOrientation());
+				break;
+			default:
+				break;
 			}
+
 		}
-		return coordinate.getX() + "-" + coordinate.getY() + "-" + direction.stringValue();
+		return coordinate.getX() + "-" + coordinate.getY() + "-" + direction.toString();
 	}
 
 	public Grid getGrid() {
@@ -45,17 +52,9 @@ public class Rover {
 		this.coordinate = coordinate;
 	}
 
-	public DirectionImpl getDirection() {
-		return direction;
-	}
-
-	public void setDirection(DirectionImpl direction) {
-		this.direction = direction;
-	}
-
 	@Override
 	public String toString() {
-		return   coordinate.toString() + " " + direction.toString()  ;
+		return coordinate.toString() + " " + direction.toString();
 	}
 
 }
