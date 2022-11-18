@@ -20,13 +20,13 @@ public class Rover {
 
 			switch (c) {
 			case Const.turn_Right:
-				direction.setOrientation(direction.right());
+				direction.updateOrientation(direction.right());
 				break;
 			case Const.turn_Left:
-				direction.setOrientation(direction.left());
+				direction.updateOrientation(direction.left());
 				break;
 			case Const.move:
-				coordinate = grid.nextCellPosition(coordinate, direction.getOrientation());
+				coordinate = grid.nextCellPosition(coordinate, direction.returnOrientation());
 				break;
 			default:
 				break;

@@ -10,11 +10,12 @@ import model.Coordinate;
 import model.Grid;
 import model.Rover;
 import service.Direction;
+import service.DirectionImpl;
 import service.Direction;
 
 class DirectionTest {
 
-	private Direction direction = new Direction(Orientation.NORTH);
+	private DirectionImpl direction = new DirectionImpl(Orientation.NORTH);
 	private Coordinate coordinate = new Coordinate(0, 0);
 	private Grid grid = new Grid(5, 5);
 	private Rover rover = new Rover(grid, coordinate, direction);

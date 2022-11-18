@@ -10,6 +10,7 @@ import model.Coordinate;
 import model.Grid;
 import model.Rover;
 import service.Direction;
+import service.DirectionImpl;
 
 public class Run {
 
@@ -31,7 +32,7 @@ public class Run {
 
 						Orientation or = Orientation.orientationMatching(list.get(i).split(" ")[2]);
 
-						Direction direction1 = new Direction(or);
+						Direction direction1 = new DirectionImpl(or);
 
 						Rover rover = new Rover(grid, cord, direction1);
 
