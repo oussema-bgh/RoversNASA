@@ -5,31 +5,31 @@ import service.Direction;
 
 public class DirectionImpl implements Direction {
 
-	public Orientation oritntation;
+	public Orientation orientation;
 
-	public Orientation getOritntation() {
-		return oritntation;
+	public Orientation getOrientation() {
+		return this.orientation;
 	}
 
-	public void setOritntation(Orientation oritntation) {
-		this.oritntation = oritntation;
+	public void setOrientation(Orientation orientation) {
+		this.orientation = orientation;
 	}
 
-	public DirectionImpl(Orientation oritntation) {
+	public DirectionImpl(Orientation orientation) {
 		super();
-		this.oritntation = oritntation;
+		this.orientation = orientation;
 	}
 
 	public Orientation right() {
-		return directionMatching(this.oritntation.getRight());
+		return directionMatching(this.orientation.getRight());
 	}
 
 	public Orientation left() {
-		return directionMatching(oritntation.getLeft());
+		return directionMatching(orientation.getLeft());
 	}
 
 	public String stringValue() {
-		return oritntation.getCurrent();
+		return orientation.getCurrent();
 	}
 
 	private Orientation directionMatching(String value) {

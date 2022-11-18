@@ -17,12 +17,14 @@ public class Rover {
 	public String execute(String commands) {
 		for (char c : commands.toCharArray()) {
 			if (c == 'R') {
-				direction.setOritntation(direction.right());
+				direction.setOrientation(direction.right());
 			}
 			if (c == 'L') {
-				direction.setOritntation(direction.left());
+				direction.setOrientation(direction.left());
 			}
-
+			if (c == 'M') {
+				coordinate = grid.nextCellPosition(coordinate, direction.getOrientation());
+			}
 		}
 		return coordinate.getX() + "-" + coordinate.getY() + "-" + direction.stringValue();
 	}
