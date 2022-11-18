@@ -1,19 +1,10 @@
-package serviceImplimentation;
+package service;
 
 import enums.Orientation;
-import service.Direction;
 
-public class DirectionImpl implements Direction {
+public class DirectionImpl  {
 
-	public Orientation orientation;
-
-	public Orientation getOrientation() {
-		return this.orientation;
-	}
-
-	public void setOrientation(Orientation orientation) {
-		this.orientation = orientation;
-	}
+	private Orientation orientation;
 
 	public DirectionImpl(Orientation orientation) {
 		super();
@@ -32,7 +23,7 @@ public class DirectionImpl implements Direction {
 		return orientation.getCurrent();
 	}
 
-	private Orientation directionMatching(String value) {
+	public Orientation directionMatching(String value) {
 		for (Orientation obj : Orientation.values()) {
 			if (obj.getCurrent().equals(value)) {
 				return obj;
@@ -40,4 +31,18 @@ public class DirectionImpl implements Direction {
 		}
 		return null;
 	}
+
+	public Orientation getOrientation() {
+		return this.orientation;
+	}
+
+	public void setOrientation(Orientation orientation) {
+		this.orientation = orientation;
+	}
+
+	@Override
+	public String toString() {
+		return orientation.getCurrent();
+	}
+
 }

@@ -25,5 +25,13 @@ public enum Orientation {
 	public String getRight() {
 		return right;
 	}
-
+	
+	public static Orientation orientationMatching(String value) {
+		for (Orientation obj : Orientation.values()) {
+			if (obj.getCurrent().startsWith(value)) {
+				return obj;
+			}
+		}
+		return null;
+	}
 }

@@ -9,7 +9,7 @@ import enums.Orientation;
 import model.Coordinate;
 import model.Grid;
 import model.Rover;
-import serviceImplimentation.DirectionImpl;
+import service.DirectionImpl;
 
 class DirectionTest {
 
@@ -32,6 +32,12 @@ class DirectionTest {
 	}
 
 	@ParameterizedTest
+	@CsvSource({ "N, NORTH" , "S, SOUTH", "E, EAST", "W, WEST" })
+	void get_orientation(String command, String position) {
+		assertEquals(Orientation.orientationMatching(command).toString(), position);
+	}
+	
+	@ParameterizedTest
 	@CsvSource({ "M, 0-1-N", "MMM, 0-3-N", })
 	void move_up(String command, String position) {
 		assertEquals(rover.execute(command), position);
@@ -44,38 +50,40 @@ class DirectionTest {
 	}
 
 	@ParameterizedTest
-	@CsvSource({ "RM, 1-0-E", "RMMMMM, 0-0-E" })
+	@CsvSource({ "RM, 1-0-E", "RMMMMM, 5-0-E" })
 	void move_right(String command, String position) {
 		assertEquals(rover.execute(command), position);
 	}
 
 	@ParameterizedTest
-	@CsvSource({ "RMRRM, 0-0-W", "RMMMMMRRMM, 3-0-W" })
+	@CsvSource({ "RMRRM, 0-0-W", "RMMMMRR, 4-0-W" })
 	void move_left(String command, String position) {
 		assertEquals(rover.execute(command), position);
 	}
 
 	@ParameterizedTest
-	@CsvSource({ "MMMMMMMMMM, 0-0-N", "MMMMMMMMMMMMMMM, 0-0-N" })
+	@CsvSource({ "MMMMMMMMMM, 0-5-N", "MMMMMMMMMMMMMMM, 0-5-N" })
 	void wrap_from_top_to_bottom(String command, String position) {
 		assertEquals(rover.execute(command), position);
 	}
 
 	@ParameterizedTest
-	@CsvSource({ "RRM, 0-4-S", "RRMMMMM, 0-0-S" })
+	@CsvSource({ "RRM, 0-5-S", "RRMMMMM, 0-1-S" })
 	void wrap_from_bottom_to_top(String command, String position) {
 		assertEquals(rover.execute(command), position);
 	}
 
 	@ParameterizedTest
-	@CsvSource({ "RMMMMMMMMMM, 0-0-E", "RMMMMMMMMMMMMMMM, 0-0-E" })
+	@CsvSource({ "RMMMMMMMMMM, 5-0-E", "RMMMMMMMMMMMMMMM, 5-0-E" })
 	void wrap_from_right_to_left(String command, String position) {
 		assertEquals(rover.execute(command), position);
 	}
 
 	@ParameterizedTest
-	@CsvSource({ "LM, 4-0-W", "LMMMMM, 0-0-W" })
+	@CsvSource({ "LM, 5-0-W", "LMMMMM, 1-0-W" })
 	void wrap_from_left_to_right(String command, String position) {
 		assertEquals(rover.execute(command), position);
 	}
+	
+	
 }

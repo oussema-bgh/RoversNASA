@@ -1,6 +1,6 @@
 package model;
 
-import serviceImplimentation.DirectionImpl;
+import service.DirectionImpl;
 
 public class Rover {
 
@@ -51,6 +51,11 @@ public class Rover {
 
 	public void setDirection(DirectionImpl direction) {
 		this.direction = direction;
+	}
+
+	@Override
+	public String toString() {
+		return   coordinate.toString() + " " + direction.toString()  ;
 	}
 
 }
