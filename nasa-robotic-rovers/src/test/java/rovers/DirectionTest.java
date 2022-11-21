@@ -9,9 +9,7 @@ import enums.Orientation;
 import model.Coordinate;
 import model.Grid;
 import model.Rover;
-import service.Direction;
 import service.DirectionImpl;
-import service.Direction;
 
 class DirectionTest {
 

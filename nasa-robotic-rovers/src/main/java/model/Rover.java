@@ -19,13 +19,13 @@ public class Rover {
 		for (char c : commands.toCharArray()) {
 
 			switch (c) {
-			case Const.turn_Right:
+			case Const.TURN_RIGHT:
 				direction.updateOrientation(direction.right());
 				break;
-			case Const.turn_Left:
+			case Const.TURN_LEFT:
 				direction.updateOrientation(direction.left());
 				break;
-			case Const.move:
+			case Const.MOVE:
 				coordinate = grid.nextCellPosition(coordinate, direction.returnOrientation());
 				break;
 			default:

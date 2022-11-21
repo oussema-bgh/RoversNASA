@@ -54,5 +54,5 @@ public class DirectionImpl implements Direction {
 	public String displayDirection() {
 		return orientation.getCurrent();
 	}
-		
+
 }
