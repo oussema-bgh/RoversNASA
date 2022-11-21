@@ -33,7 +33,7 @@ public class Rover {
 			}
 
 		}
-		return coordinate.getX() + "-" + coordinate.getY() + "-" + direction.toString();
+		return coordinate.getX() + "-" + coordinate.getY() + "-" + direction.displayDirection();
 	}
 
 	public Grid getGrid() {
@@ -54,7 +54,7 @@ public class Rover {
 
 	@Override
 	public String toString() {
-		return coordinate.toString() + " " + direction.toString();
+		return coordinate.toString() + " " + direction.displayDirection();
 	}
 
 }

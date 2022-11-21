@@ -4,7 +4,7 @@ import enums.Orientation;
 
 public class DirectionImpl implements Direction {
 
-	private Orientation orientation;
+	Orientation orientation;
 
 	public DirectionImpl(Orientation orientation) {
 		this.orientation = orientation;
@@ -28,21 +28,10 @@ public class DirectionImpl implements Direction {
 				return obj;
 			}
 		}
-		return null;
+		// return North by default
+		return Orientation.NORTH;
 	}
 
-	public Orientation getOrientation() {
-		return orientation;
-	}
-
-	public void setOrientation(Orientation orientation) {
-		this.orientation = orientation;
-	}
-
-	public String toString() {
-		return orientation.getCurrent();
-	}
-	
 	public Orientation returnOrientation() {
 		return orientation;
 	}

@@ -2,6 +2,7 @@ package rovers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -18,6 +19,20 @@ class DirectionTest {
 	private Grid grid = new Grid(5, 5);
 	private Rover rover = new Rover(grid, coordinate, direction);
 
+	@Test
+	void to_right() {
+		//initial position is North
+		assertEquals(Orientation.EAST, direction.right());
+
+	}
+
+	@Test
+	void to_left() {
+		//initial position is North
+		assertEquals(Orientation.WEST, direction.left());
+
+	}
+	
 	@ParameterizedTest
 	@CsvSource({ "R, 0-0-E", "RR, 0-0-S", "RRR, 0-0-W", "RRRR, 0-0-N" })
 	void turn_right(String command, String position) {
@@ -32,11 +47,11 @@ class DirectionTest {
 	}
 
 	@ParameterizedTest
-	@CsvSource({ "N, NORTH" , "S, SOUTH", "E, EAST", "W, WEST" })
+	@CsvSource({ "N, NORTH", "S, SOUTH", "E, EAST", "W, WEST" })
 	void get_orientation(String command, String position) {
 		assertEquals(Orientation.orientationMatching(command).toString(), position);
 	}
-	
+
 	@ParameterizedTest
 	@CsvSource({ "M, 0-1-N", "MMM, 0-3-N", })
 	void move_up(String command, String position) {
@@ -84,6 +99,5 @@ class DirectionTest {
 	void wrap_from_left_to_right(String command, String position) {
 		assertEquals(rover.execute(command), position);
 	}
-	
-	
+
 }
